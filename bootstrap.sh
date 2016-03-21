@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+########################
+# Build Small Binary 
+########################
+
 sudo dnf -y install wget
 wget https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz
 # To verify the checksum by inspection, please see: https://golang.org/dl/ 
@@ -19,6 +23,10 @@ export GOPATH=/vagrant/
 go install hello
 /vagrant/bin/hello
 
+############################
+# Build Docker Sighter Image
+############################
+
 sudo dnf -y update
 sudo tee /etc/yum.repos.d/docker.repo <<-'EOF'
 [dockerrepo]
@@ -30,4 +38,5 @@ gpgkey=https://yum.dockerproject.org/gpg
 EOF
 sudo dnf -y install docker-engine
 sudo systemctl start docker
-
+sudo docker build -t sighter .
+sudo docker run sighter
