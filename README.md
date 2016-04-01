@@ -2,7 +2,7 @@
 
 This repo is a recipe for building a *Sighter Docker Image* from scratch for continuous deployment pipeline flow assurance.
 
-The Sighter Docker Image, which is also benign by definition, will flow from the start of the pipeline to the very end, namely production.  
+The Sighter Docker Image, which is also benign by definition, will flow from the start of the pipeline to the very end, namely production.
 
 ## Defining The Phrase *Sighter Docker Image*
 
@@ -24,3 +24,9 @@ Benign Docker Image will be comprised of a single read-only layer with its own u
 content addressable storage model which guarantees data integrity after pull, push, load and save operations.    
 
 The motivation behind the minimal size of the image is because the primary concern is confirming that the pipeline is flowing, and not its throughput.
+
+## Publishing The Sighter Image To Docker Hub
+
+If Docker Hub is included in an enterprise continuous deployment pipeline then one may want to publish to Docker Hub. This has been done with the
+image produced using the Vagrantfile and Dockerfile available in this repository with the Sighter 
+[available here](https://hub.docker.com/r/nicodewet/sighter/ "Docker Sighter Image").

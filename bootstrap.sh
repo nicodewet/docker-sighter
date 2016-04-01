@@ -38,5 +38,6 @@ gpgkey=https://yum.dockerproject.org/gpg
 EOF
 sudo dnf -y install docker-engine
 sudo systemctl start docker
+cd /vagrant/
 sudo docker build -t sighter .
 sudo docker run sighter
